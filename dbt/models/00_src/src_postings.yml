@@ -1,6 +1,10 @@
 sources:
-  - name: hledger
+  - name: public
     database: accounting
     schema: public
     tables:
       - name: postings
+      - name: barclays
+      - name: gls
+
+

@@ -13,7 +13,7 @@ with renamed_columns as (
         , debit
         , load_date
         , row_number() over (partition by id order by load_date desc) as row_num
-    from {{ source('hledger', 'postings') }}
+    from {{ source('public', 'postings') }}
 )
 
 select *

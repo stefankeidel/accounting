@@ -1,13 +1,30 @@
 select
     transaction_id
-    , tx_index
-    , posting_date as transaction_date
+    , 'barclays' as source
+    , transaction_date
     , description
-    , comment
-    , p.account
-    , commodity
-    , amount
-from {{ ref('stg_postings') }} p
-join {{ ref('accounts') }} a
-    on p.account = a.account
-    and a.is_balance_sheet
+    , account
+    , amount_eur
+from {{ ref('barclays_transactions') }}
+
+union all
+
+select
+    transaction_id::text as transaction_id
+    , 'hledger' as source
+    , transaction_date
+    , description
+    , account
+    , amount as amount_eur
+from {{ ref('hledger_transactions') }}
+
+union all
+
+select
+    transaction_id
+    , 'gls' as source
+    , transaction_date
+    , description
+    , account
+    , amount_eur
+from {{ ref('gls_transactions') }}

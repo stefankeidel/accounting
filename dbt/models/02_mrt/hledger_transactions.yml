@@ -1,10 +1,9 @@
 version: 2
 
 models:
-  - name: transactions
+  - name: hledger_transactions
     columns:
       - name: transaction_id
         tests:
           - not_null
           - unique
-
