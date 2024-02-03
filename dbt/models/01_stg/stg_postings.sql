@@ -12,8 +12,10 @@ with renamed_columns as (
         , credit
         , debit
         , load_date
+        , row_number() over (partition by id order by load_date desc) as row_num
     from {{ source('hledger', 'postings') }}
 )
 
 select *
 from renamed_columns 
+where row_num = 1
