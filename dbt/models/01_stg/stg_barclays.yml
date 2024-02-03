@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_barclays
+    columns:
+      - name: reference
+        tests:
+          - not_null
+          - unique
