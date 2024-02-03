@@ -1,0 +1,6 @@
+sources:
+  - name: hledger
+    database: accounting
+    schema: public
+    tables:
+      - name: postings

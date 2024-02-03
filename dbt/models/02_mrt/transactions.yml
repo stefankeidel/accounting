@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+
