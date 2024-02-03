@@ -1,5 +1,6 @@
 select
-    {{ dbt_utils.generate_surrogate_key(['posting_date', 'description', 'p.account', 'amount']) }} as transaction_id
+    transaction_id
+    , tx_index
     , posting_date as transaction_date
     , description
     , comment

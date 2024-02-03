@@ -1,6 +1,8 @@
 with renamed_columns as (
     select
-        date1 as posting_date
+        id as transaction_id
+        , txnidx as tx_index
+        , date1 as posting_date
         , status
         , description
         , comment
@@ -10,10 +12,8 @@ with renamed_columns as (
         , credit
         , debit
         , load_date
-        , row_number() over (partition by date1, description, amount order by load_date desc) as rn
     from {{ source('hledger', 'postings') }}
 )
 
 select *
 from renamed_columns 
-where rn = 1
