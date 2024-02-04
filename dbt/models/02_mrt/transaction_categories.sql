@@ -6,17 +6,11 @@ with base as (
         , description
         , comment
         , p.account
-        , commodity
-        , amount
     from {{ ref('stg_postings') }} p
     join {{ ref('accounts') }} a
         on p.account = a.account
-        and a.is_balance_sheet
+        and not a.is_balance_sheet
 )
 
-select distinct
-    b.*
-    , c.account as category
-from base b
-join {{ ref('transaction_categories') }} c
-   using (tx_index)
+select *
+from base

@@ -35,6 +35,14 @@ models:
     # Config indicated by + and applies to all files under models/example/
     01_stg:
       +materialized: table
+      schema: staging
     02_mrt:
       +materialized: table
+      schema: analytics
+    03_analysis:
+      +materialized: table
+      schema: analysis
+    04_ml:
+      +materialized: table
+      schema: ml
 
