@@ -28,3 +28,14 @@ select
     , account
     , amount_eur
 from {{ ref('gls_transactions') }}
+
+union all
+
+select
+    transaction_id::text as transaction_id
+    , 'gls_depot' as source
+    , transaction_date
+    , description
+    , account
+    , diff as amount_eur
+from {{ ref('gls_depot_transactions') }}
