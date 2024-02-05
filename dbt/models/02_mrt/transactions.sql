@@ -1,3 +1,5 @@
+with unioned as (
+
 select
     transaction_id
     , 'barclays' as source
@@ -5,6 +7,7 @@ select
     , description
     , account
     , amount_eur
+    , null as category
 from {{ ref('barclays_transactions') }}
 
 union all
@@ -16,6 +19,7 @@ select
     , description
     , account
     , amount as amount_eur
+    , category
 from {{ ref('hledger_transactions') }}
 
 union all
@@ -27,6 +31,7 @@ select
     , description
     , account
     , amount_eur
+    , null as category
 from {{ ref('gls_transactions') }}
 
 union all
@@ -38,4 +43,10 @@ select
     , description
     , account
     , diff as amount_eur
+    , null as category
 from {{ ref('gls_depot_transactions') }}
+
+)
+
+select *
+from unioned
