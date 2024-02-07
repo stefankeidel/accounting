@@ -18,5 +18,5 @@ select distinct
     b.*
     , c.account as category
 from base b
-join {{ ref('transaction_categories') }} c
+left join {{ ref('transaction_categories') }} c
    using (tx_index)

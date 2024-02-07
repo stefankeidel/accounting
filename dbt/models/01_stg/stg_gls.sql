@@ -17,3 +17,4 @@ with src_key as (
 
 select *
 from src
+where rn = 1
