@@ -1,5 +1,3 @@
-{{ config(disabled=true) }}
-
 with to_map as (
 
     select
@@ -74,6 +72,19 @@ select
         when description ilike '%Sudden Death%' then 'Expenses:Discretionary'
         when description ilike '%Cafe Luise%' then 'Expenses:Discretionary'
         when description ilike '%IKEA%' then 'Expenses:Discretionary'
+        when description ilike '%Telekom Deutschland GmbH%' then 'Expenses:Subscriptions'
+        when description ilike '%Deutsche Bahn%' then 'Expenses:Transportation'
+        when description ilike '%DB Fern%' then 'Expenses:Transportation'
+        when description ilike '%Aral%' and amount_eur > -30 then 'Expenses:Discretionary'
+
+        when description ilike '%Globetrotter%' then 'Expenses:Discretionary'
+        when description ilike '%Brauhaus%' then 'Expenses:Discretionary'
+        when description ilike '%SATURN%' then 'Expenses:Discretionary'
+        when description ilike '%BUDNI%' then 'Expenses:Mandatory'
+        when description ilike '%Eat better now%' then 'Expenses:Discretionary'
+        when description ilike '%A-ROSA%' then 'Expenses:Travel'
+        when description ilike '%FPS Justice-Cross Bord Brussels%' then 'Expenses:Transportation'
+        when description ilike '%Superfreunde%' then 'Expenses:Discretionary'
         
 
         when description ilike 'baeckerei%' then 'Expenses:Mandatory'
