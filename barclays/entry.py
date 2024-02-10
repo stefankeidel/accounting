@@ -8,7 +8,7 @@ import numpy as np
 
 
 def connect_to_postgres():
-    conn = create_engine("postgresql://accounting:unicorn@127.0.0.1:5432/accounting")
+    conn = create_engine("postgresql://accounting:unicorn@nextcloud-do:5432/accounting")
     return conn
 
 
