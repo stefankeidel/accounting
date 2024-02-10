@@ -74,6 +74,7 @@ select
         when description ilike '%IKEA%' then 'Expenses:Discretionary'
         when description ilike '%Telekom Deutschland GmbH%' then 'Expenses:Subscriptions'
         when description ilike '%Deutsche Bahn%' then 'Expenses:Transportation'
+        when description ilike '%DB HAMBURG%' then 'Expenses:Transportation'
         when description ilike '%DB Fern%' then 'Expenses:Transportation'
         when description ilike '%Aral%' and amount_eur > -30 then 'Expenses:Discretionary'
 
@@ -85,11 +86,41 @@ select
         when description ilike '%A-ROSA%' then 'Expenses:Travel'
         when description ilike '%FPS Justice-Cross Bord Brussels%' then 'Expenses:Transportation'
         when description ilike '%Superfreunde%' then 'Expenses:Discretionary'
-        
+        when description ilike '%Miete Justus-Strandes-Weg%' then 'Expenses:Rent'
+        when description ilike '%Dominos%' then 'Expenses:Discretionary'
+        when description ilike '%Hetzner%' then 'Expenses:Subscriptions'
+
+        when description ilike '%FRIDAY Insurance%' then 'Expenses:Insurance'
+        when description ilike '%WERTPAPIERABRECHNUNG%' then 'Expenses:Investments'
+        when description ilike '%COSMOS Lebensversicherungs-Aktiengesellschaft%' then 'Expenses:Investments'
+        when description ilike '%WP-ERTRÄGNISGUTSCHRIFT%' then 'Income:Dividends'
+        when description ilike '%SCHECK-NR.%' then 'Income:Refunds'
+
+        when description ilike '%Vodafone%' then 'Expenses:Eitelstr'
+        when description ilike '%Helvetica Services%' then 'Expenses:Eitelstr'
+        when description ilike '%Giorgi%' then 'Expenses:Eitelstr'
+        when description ilike '%Lichtblick SE%' and amount_eur < -60 then 'Expenses:Eitelstr'
+        when description ilike '%Lichtblick SE%' and amount_eur < 0 then 'Expenses:Utilities'
+        when description ilike '%Lichtblick SE%' and amount_eur > 0 then 'Income:Salary'
+
+        when description ilike '%DEPOTENTGELT%' then 'Expenses:Subscriptions'
+        when description ilike '%Abschluss per %' then 'Expenses:Subscriptions'
+        when description ilike '%GLS Beitrag%' then 'Expenses:Subscriptions'
+
+        when description ilike '%Lea%' then 'Income:Selling Used Shit'
+        when description ilike '%vaude regen%' then 'Income:Selling Used Shit'
+        when description ilike '%Nils Thomsen%' then 'Expenses:Discretionary'
+
+        when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
+        when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
 
         when description ilike 'baeckerei%' then 'Expenses:Mandatory'
         when description ilike 'AMZN%' then 'Expenses:Discretionary'
         when description ilike 'paypal%' then 'Expenses:Discretionary'
+
+        when description = 'Some CSV export from depot' then 'Income:Capital Gains'
+        when description = 'Fake depot to 0 transaction'  then 'Income:Capital Gains'
+
         else null
       end as category
 from to_map

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: transactions_mapped
+    columns:
+      - name: category
+        description: The transaction category
+        tests:
+          - not_null:
+              where: "transaction_date >= current_date - interval '1 month'"
