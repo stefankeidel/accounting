@@ -24,17 +24,22 @@ select
         when lower(description) = 'paypal' and amount_eur < 0 then 'Expenses:Discretionary' -- not entirely true but meh. Trying to get away from PP anyway
         when description = 'PayPal' and amount_eur > 0 then 'Expenses:Discretionary' -- this means Kleinanzeigen sales go into that bucket, but also meh
         when description like '%Hamburg Service%' then 'Expenses:Mandatory'
-        when description in ('Bike24', 'Bike-Discount') then 'Expenses:Discretionary'
-        when description ilike '%r2 Handels GmbH%' then 'Expenses:Discretionary'
-        when description ilike '%H&S BIKE-DISCOUNT%' then 'Expenses:Discretionary'
-        when description ilike '%Internetstores%' then 'Expenses:Discretionary'
-        when description ilike '%Komponentix%' then 'Expenses:Discretionary'
+
+        when description in ('Bike24', 'Bike-Discount') then 'Expenses:Bike'
+        when description ilike '%r2 Handels GmbH%' then 'Expenses:Bike'
+        when description ilike '%H&S BIKE-DISCOUNT%' then 'Expenses:Bike'
+        when description ilike '%Internetstores%' then 'Expenses:Bike'
+        when description ilike '%Komponentix%' then 'Expenses:Bike'
+        when description ilike '%BIKECOMPON%' then 'Expenses:Bike'
+        when description ilike '%cotic%' then 'Expenses:Bike'
+        when description ilike '%decathlon%' then 'Expenses:Bike'
+        when description ilike '%Globetrotter%' then 'Expenses:Bike'
+
+
         when description in ('REWE', 'Penny Market', 'EDEKA') then 'Expenses:Mandatory'
         when description ilike '%edeka%' then 'Expenses:Mandatory'
         when description ilike '%nur hier gmbh%' then 'Expenses:Mandatory'
         when description ilike '%aldi nord%' then 'Expenses:Discretionary'
-        when description ilike '%cotic%' then 'Expenses:Discretionary'
-        when description ilike '%BIKECOMPON%' then 'Expenses:Discretionary'
         when description ilike '%flaschenp%' then 'Expenses:Discretionary'
         when description ilike '%Apple Store%' then 'Expenses:Discretionary'
         when description ilike '%Apple%' then 'Expenses:Subscriptions'
@@ -64,7 +69,6 @@ select
         when description ilike '%Lidl%' then 'Expenses:Mandatory'
         when description ilike 'REWE%' then 'Expenses:Mandatory'
         when description ilike 'nur hier%' then 'Expenses:Mandatory'
-        when description ilike '%decathlon%' then 'Expenses:Mandatory'
         when description ilike '%bvg%' then 'Expenses:Transportation'
         when description ilike '%NAH.SH%' then 'Expenses:Transportation'
         when description ilike '%DB Vertrieb%' then 'Expenses:Transportation'
@@ -83,7 +87,6 @@ select
         when description ilike '%DB Fern%' then 'Expenses:Transportation'
         when description ilike '%Aral%' and amount_eur > -30 then 'Expenses:Discretionary'
 
-        when description ilike '%Globetrotter%' then 'Expenses:Discretionary'
         when description ilike '%Brauhaus%' then 'Expenses:Discretionary'
         when description ilike '%SATURN%' then 'Expenses:Discretionary'
         when description ilike '%BUDNI%' then 'Expenses:Mandatory'
