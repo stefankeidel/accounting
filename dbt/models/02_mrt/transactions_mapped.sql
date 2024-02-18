@@ -25,6 +25,10 @@ select
         when description = 'PayPal' and amount_eur > 0 then 'Expenses:Discretionary' -- this means Kleinanzeigen sales go into that bucket, but also meh
         when description like '%Hamburg Service%' then 'Expenses:Mandatory'
         when description in ('Bike24', 'Bike-Discount') then 'Expenses:Discretionary'
+        when description ilike '%r2 Handels GmbH%' then 'Expenses:Discretionary'
+        when description ilike '%H&S BIKE-DISCOUNT%' then 'Expenses:Discretionary'
+        when description ilike '%Internetstores%' then 'Expenses:Discretionary'
+        when description ilike '%Komponentix%' then 'Expenses:Discretionary'
         when description in ('REWE', 'Penny Market', 'EDEKA') then 'Expenses:Mandatory'
         when description ilike '%edeka%' then 'Expenses:Mandatory'
         when description ilike '%nur hier gmbh%' then 'Expenses:Mandatory'
@@ -42,6 +46,7 @@ select
         when description ilike '%Amazon Marketplace%' then 'Expenses:Discretionary'
         when description ilike '%Amazon%' then 'Expenses:Discretionary'
         when description ilike '%DigitalOcean%' then 'Expenses:Subscriptions'
+        when description ilike '%NextDNS%' then 'Expenses:Subscriptions'
         when description ilike '%Rossmann%' then 'Expenses:Mandatory'
         when description ilike '%Konditorei Junge%' then 'Expenses:Mandatory'
         when description ilike '%Telefonica%' then 'Expenses:Subscriptions'
