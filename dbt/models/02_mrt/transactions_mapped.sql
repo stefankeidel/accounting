@@ -118,6 +118,9 @@ select
         when description ilike '%Lea%' then 'Income:Selling Used Shit'
         when description ilike '%vaude regen%' then 'Income:Selling Used Shit'
         when description ilike '%Nils Thomsen%' then 'Expenses:Discretionary'
+        when description ilike '%Booking.com%' then 'Expenses:Travel'
+        when description ilike '%Schnitzelhaus%' then 'Expenses:Discretionary'
+        when description ilike '%FAMILIENBAECKEREI KOLL QUICKBORN%' then 'Expenses:Discretionary'
 
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
