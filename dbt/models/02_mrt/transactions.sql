@@ -48,5 +48,12 @@ from {{ ref('gls_depot_transactions') }}
 
 )
 
-select *
+select
+  transaction_id
+  , source
+  , transaction_date
+  , description
+  , account
+  , round(cast(amount_eur as numeric), 2) as amount_eur
+  , category
 from unioned
