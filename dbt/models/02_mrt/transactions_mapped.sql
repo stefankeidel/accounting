@@ -119,6 +119,9 @@ select
         when description ilike '%vaude regen%' then 'Income:Selling Used Shit'
         when description ilike '%Nils Thomsen%' then 'Expenses:Discretionary'
         when description ilike '%Booking.com%' then 'Expenses:Travel'
+        when description ilike '%E NEUKAUF%' then 'Expenses:Discretionary'
+        when description ilike '%KINOHELD.DE%' then 'Expenses:Discretionary'
+        when description ilike '%ZWEIRADHOTEL%' then 'Expenses:Travel'
         when description ilike '%Schnitzelhaus%' then 'Expenses:Discretionary'
         when description ilike '%FAMILIENBAECKEREI KOLL QUICKBORN%' then 'Expenses:Discretionary'
 

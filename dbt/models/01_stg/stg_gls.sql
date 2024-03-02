@@ -8,7 +8,11 @@ with src_key as (
 , src as (
     select
         *
-        , to_date(valutadatum, 'DD.MM.YYYY') as value_date
+        , case when substring(valutadatum, 1, 5) = '30.02' then
+            to_date(replace(valutadatum, '30.02.', '28.02.'), 'DD.MM.YYYY')
+          else
+            to_date(valutadatum, 'DD.MM.YYYY')
+          end as value_date
         , cast(replace(betrag, ',', '.') as float) as amount_eur
         , row_number() over (partition by transaction_id order by load_time desc) as rn
     from src_key
