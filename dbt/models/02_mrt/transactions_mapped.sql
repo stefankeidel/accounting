@@ -124,6 +124,8 @@ select
         when description ilike '%ZWEIRADHOTEL%' then 'Expenses:Travel'
         when description ilike '%Schnitzelhaus%' then 'Expenses:Discretionary'
         when description ilike '%FAMILIENBAECKEREI KOLL QUICKBORN%' then 'Expenses:Discretionary'
+        when description ilike '%Domino%Pizza%' then 'Expenses:Discretionary'
+        when description ilike '%BILLY THE BUTCHER%' then 'Expenses:Discretionary'
 
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
