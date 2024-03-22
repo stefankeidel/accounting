@@ -127,11 +127,18 @@ select
         when description ilike '%Domino%Pizza%' then 'Expenses:Discretionary'
         when description ilike '%BILLY THE BUTCHER%' then 'Expenses:Discretionary'
 
+        when description ilike '%NAME-CHEAP%' then 'Expenses:Subscriptions'
+        when description ilike '%Taxfix%' then 'Expenses:Subscriptions'
+        when description ilike '%Rundfunk ARD, ZDF, DRadio%' then 'Expenses:Utilities'
+        when description ilike '%DAILY BREAD%' then 'Expenses:Bike'
+        when description ilike '%TRANGIA%' then 'Expenses:Bike'
+
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
 
         when description ilike 'baeckerei%' then 'Expenses:Mandatory'
         when description ilike 'AMZN%' then 'Expenses:Discretionary'
+        when description ilike '%SUPERMARKT%' then 'Expenses:Mandatory'
         when description ilike 'paypal%' then 'Expenses:Discretionary'
 
         when description = 'Some CSV export from depot' then 'Income:Capital Gains'
