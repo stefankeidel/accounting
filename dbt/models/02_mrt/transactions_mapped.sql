@@ -133,6 +133,21 @@ select
         when description ilike '%DAILY BREAD%' then 'Expenses:Bike'
         when description ilike '%TRANGIA%' then 'Expenses:Bike'
 
+        when description ilike '%CINEMAXX%' then 'Expenses:Discretionary'
+        when description ilike '%DALLMEYERS%' then 'Expenses:Mandatory'
+        when description ilike '%AVIA%' then 'Expenses:Discretionary'
+        when description ilike '%Regiomat%' then 'Expenses:Discretionary'
+        when description ilike '%Airbnb%' then 'Expenses:Travel'
+        when description ilike '%Scotrail%' then 'Expenses:Travel'
+        when description ilike '%HOPS%BARLEY%' then 'Expenses:Discretionary'
+        when description ilike '%BraufactuM%' then 'Expenses:Discretionary'
+        when description ilike '%Veloheld%' then 'Expenses:Bike'
+        when description ilike '%STEINECKES%' then 'Expenses:Mandatory'
+        when description ilike '%BERNAUER BRAUG%' then 'Expenses:Discretionary'
+        when description ilike '%FIVE ELEPHANT%' then 'Expenses:Discretionary'
+        when description ilike '%SCHAEFERS%' then 'Expenses:Discretionary'
+        when description ilike '%Alnatura%' then 'Expenses:Discretionary'
+
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
 
