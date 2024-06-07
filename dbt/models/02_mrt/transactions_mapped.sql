@@ -34,10 +34,14 @@ select
         when description ilike '%cotic%' then 'Expenses:Bike'
         when description ilike '%decathlon%' then 'Expenses:Bike'
         when description ilike '%Globetrotter%' then 'Expenses:Bike'
+        when description ilike '%BERGFREUNDE%' then 'Expenses:Bike'
+        when description ilike '%TAILFIN%' then 'Expenses:Bike'
 
 
         when description in ('REWE', 'Penny Market', 'EDEKA') then 'Expenses:Mandatory'
+        when description like '%REWE%' then 'Expenses:Mandatory'
         when description ilike '%edeka%' then 'Expenses:Mandatory'
+        when description ilike '%HIT ECHTE VIELFALT%' then 'Expenses:Mandatory'
         when description ilike '%nur hier gmbh%' then 'Expenses:Mandatory'
         when description ilike '%aldi nord%' then 'Expenses:Discretionary'
         when description ilike '%flaschenp%' then 'Expenses:Discretionary'
@@ -74,6 +78,7 @@ select
         when description ilike '%DB Vertrieb%' then 'Expenses:Transportation'
         when description ilike '%Rczbikeshop%' then 'Expenses:Discretionary'
         when description ilike '%DHL%' then 'Expenses:Discretionary'
+        when description ilike '%DPD%' then 'Expenses:Discretionary'
         when description ilike '%HERMES%' then 'Expenses:Discretionary'
         when description ilike 'EUROWINGS%' then 'Expenses:Travel'
         when description ilike 'LUFTHANSA%' then 'Expenses:Travel'
@@ -97,6 +102,7 @@ select
         when description ilike '%Miete Justus-Strandes-Weg%' then 'Expenses:Rent'
         when description ilike '%Dominos%' then 'Expenses:Discretionary'
         when description ilike '%Hetzner%' then 'Expenses:Subscriptions'
+        when description ilike '%Sanikonzept%' then 'Expenses:Discretionary'
 
         when description ilike '%FRIDAY Insurance%' then 'Expenses:Insurance'
         when description ilike '%WERTPAPIERABRECHNUNG%' then 'Expenses:Investments'
@@ -125,7 +131,13 @@ select
         when description ilike '%Schnitzelhaus%' then 'Expenses:Discretionary'
         when description ilike '%FAMILIENBAECKEREI KOLL QUICKBORN%' then 'Expenses:Discretionary'
         when description ilike '%Domino%Pizza%' then 'Expenses:Discretionary'
+        when description ilike '%Pizzeria%' then 'Expenses:Discretionary'
         when description ilike '%BILLY THE BUTCHER%' then 'Expenses:Discretionary'
+        when description ilike '%KAUFHAUS HANS J. LEMBE%' then 'Expenses:Discretionary'
+        when description ilike '%Alte Muehle Sankt Engl%' then 'Expenses:Discretionary'
+        when description ilike '%Herzi%Wirtschaft%' then 'Expenses:Discretionary'
+        when description ilike '%Hoflinger%' then 'Expenses:Discretionary'
+        when description ilike '%LEUCHTFEUER%' then 'Expenses:Discretionary'
 
         when description ilike '%NAME-CHEAP%' then 'Expenses:Subscriptions'
         when description ilike '%Taxfix%' then 'Expenses:Subscriptions'
@@ -139,6 +151,14 @@ select
         when description ilike '%Regiomat%' then 'Expenses:Discretionary'
         when description ilike '%Airbnb%' then 'Expenses:Travel'
         when description ilike '%Scotrail%' then 'Expenses:Travel'
+        when description ilike '%Hotels%' then 'Expenses:Travel'
+        when description ilike '%Pension%' then 'Expenses:Travel'
+        when description ilike '%Mietwagen%' then 'Expenses:Travel'
+        when description ilike '%Smartments%' then 'Expenses:Travel'
+
+        when description ilike '%RAIFFEISENBANK CHAMER LAND%' then 'Expenses:Cash'
+        when description ilike '%VR GENOBANK DONAUWALD%' then 'Expenses:Cash'
+
         when description ilike '%HOPS%BARLEY%' then 'Expenses:Discretionary'
         when description ilike '%BraufactuM%' then 'Expenses:Discretionary'
         when description ilike '%Veloheld%' then 'Expenses:Bike'
@@ -152,9 +172,12 @@ select
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
 
         when description ilike 'baeckerei%' then 'Expenses:Mandatory'
+        when description ilike '%ALLWÖRDEN%' then 'Expenses:Mandatory'
         when description ilike 'AMZN%' then 'Expenses:Discretionary'
         when description ilike '%SUPERMARKT%' then 'Expenses:Mandatory'
         when description ilike 'paypal%' then 'Expenses:Discretionary'
+
+        when description ilike '%Ausgleich April 2024' then 'Income:Refunds'
 
         when description = 'Some CSV export from depot' then 'Income:Capital Gains'
         when description = 'Fake depot to 0 transaction'  then 'Income:Capital Gains'
