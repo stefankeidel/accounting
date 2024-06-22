@@ -4,6 +4,6 @@ models:
   - name: hledger_transactions
     columns:
       - name: transaction_id
-        tests:
+        data_tests:
           - not_null
           - unique

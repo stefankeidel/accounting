@@ -4,6 +4,6 @@ models:
   - name: accounts
     columns:
       - name: sign
-        tests:
+        data_tests:
           - not_null
 

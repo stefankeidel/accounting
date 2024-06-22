@@ -4,6 +4,6 @@ models:
   - name: stg_barclays
     columns:
       - name: reference
-        tests:
+        data_tests:
           - not_null
           - unique
