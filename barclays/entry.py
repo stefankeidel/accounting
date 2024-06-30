@@ -37,6 +37,9 @@ def convert_df(df: pd.DataFrame):
                       df_ret.columns + s.cumcount().add(1).astype(str), 
                       df_ret.columns)
 
+    # kill reently added column
+    df_ret.drop(columns=['händlerdetails'], inplace=True)
+
     # add current datetime to the dataframe
     df_ret['load_time'] = pd.to_datetime('now')
     
