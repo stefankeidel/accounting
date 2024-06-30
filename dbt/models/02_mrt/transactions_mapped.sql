@@ -201,6 +201,11 @@ select
         when description ilike '%Hellofresh%' then 'Expenses:Mandatory'
         when description ilike '%LILLEBR%' then 'Expenses:Discretionary'
         when description ilike '%SPITZWEG APOTHEKE%' then 'Expenses:Mandatory'
+        when description ilike 'SHELL EV CHARGING%' then 'Expenses:Transportation'
+        when description ilike 'famila' then 'Expenses:Mandatory'
+        when description ilike '%FRISCHE-AKTIVMARKT%' then 'Expenses:Mandatory'
+        when description ilike 'Designer Outlet Neumünster' then 'Expenses:Discretionary'
+        when description ilike 'STRAßENBRÄU' then 'Expenses:Discretionary'
 
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
