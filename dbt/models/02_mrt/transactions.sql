@@ -21,6 +21,19 @@ select
     , amount as amount_eur
     , category
 from {{ ref('hledger_transactions') }}
+where account <> 'Assets:Investments:cosmosdirect BR'
+
+union all
+
+select
+    transaction_id::text as transaction_id
+    , 'cosmos' as source
+    , transaction_date
+    , description
+    , account
+    , amount_eur
+    , category
+from {{ ref('cosmos_transactions') }}
 
 union all
 

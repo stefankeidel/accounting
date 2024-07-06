@@ -40,3 +40,6 @@ models:
     03_analysis:
       +materialized: table
 
+seeds:
+  accounting:
+    +full_refresh: true

@@ -192,6 +192,10 @@ select
         when description ilike '%M&S%' then 'Expenses:Discretionary'
         when description ilike '%TooGoodT%' then 'Expenses:Mandatory'
         when description ilike '%WH Smith Edinburgh Air%' then 'Expenses:Discretionary'
+        when description ilike '%19grams%' then 'Expenses:Discretionary'
+        when description ilike '%Ditsch Berlin%' then 'Expenses:Mandatory'
+        when description ilike '%Kamps Backstube%' then 'Expenses:Mandatory'
+        when description ilike 'ANDRE SZATKOWKSI' then 'Expenses:Discretionary'
 
         when description ilike '%Freie und Hansestadt Hamburg Steuerkasse Hamburg ERSTATT%' then 'Income:Refunds'
         when description ilike '%V. ALLWOERDEN%' then 'Expenses:Discretionary'
