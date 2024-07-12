@@ -210,6 +210,8 @@ select
         when description ilike '%FRISCHE-AKTIVMARKT%' then 'Expenses:Mandatory'
         when description ilike 'Designer Outlet Neumünster' then 'Expenses:Discretionary'
         when description ilike 'STRAßENBRÄU' then 'Expenses:Discretionary'
+        when description ilike 'QUAD LOCK' then 'Expenses:Discretionary'
+        when description ilike 'Bundeskasse DO Kiel%' then 'Expenses:Transportation'
 
         when description ilike '%Per Lastschrift dankend erhalten%' then 'Transfer'
         when description ilike '%BARCLAYS LASTSCHRIFT%' then 'Transfer'
