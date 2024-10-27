@@ -221,6 +221,12 @@ select
         when description ilike 'AMZN%' then 'Expenses:Discretionary'
         when description ilike '%SUPERMARKT%' then 'Expenses:Mandatory'
         when description ilike 'paypal%' then 'Expenses:Discretionary'
+        when description ilike '%VB LÜNEBURGER HEIDE%' then 'Expenses:Cash'
+        when description ilike 'Bundeskasse - Dienstort Kiel%' then 'Expenses:Transportation'
+        when description ilike 'VOLKSBANK IM MÜNSTERLAND Münster/Münster/DE%' then 'Expenses:Cash'
+        when description ilike 'STOERK THOMAS%' then 'Expenses:Discretionary'
+        when description ilike 'HANSEMERKUR VERS.%' then 'Expenses:Insurance'
+        when description ilike 'Deutsche Wohnen Management GmbH Betriebskosten%' then 'Expenses:Eitelstr'
 
         when description ilike '%Ausgleich April 2024' then 'Income:Refunds'
 
