@@ -167,3 +167,7 @@ cython_debug/
 # direnv
 .envrc
 .direnv/
+
+# pyright
+pyrightconfig.json
+
