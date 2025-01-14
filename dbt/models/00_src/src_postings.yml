@@ -7,5 +7,4 @@ sources:
       - name: barclays
       - name: gls
       - name: gls_depot
-
-
+      - name: traderepublic
