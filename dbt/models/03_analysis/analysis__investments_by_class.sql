@@ -3,12 +3,12 @@ with pivot as (
         snapshot_date
         , {{ dbt_utils.pivot(
                  'class',
-                 dbt_utils.get_column_values(ref('gls_depot_transactions_by_category'), 'class'),
+                 dbt_utils.get_column_values(ref('all_depot_transactions_by_category'), 'class'),
                  agg='sum',
                  then_value='total_value',
              )
           }}
-    from {{ ref('gls_depot_transactions_by_category') }}
+    from {{ ref('all_depot_transactions_by_category') }}
     group by 1
 )
 
