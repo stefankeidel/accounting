@@ -9,6 +9,7 @@ readme = "README.md"
 python = ">=3.11,<3.13"
 dbt-postgres = "^1.9.0"
 dbt-core = "^1.9.0"
+shandy-sqlfmt = {version = "^0.24.0", extras = ["jinjafmt"]}
 
 
 [build-system]
