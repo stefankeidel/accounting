@@ -15,7 +15,7 @@ def load_to_df(filename: str):
     # read filename as csv via pandas
     return pd.read_csv(filename, delimiter=';')
 
-def main(filename: str):
+def portfolio(filename: str):
     conn = connect_to_postgres()
     df = load_to_df(filename)
 
@@ -26,5 +26,19 @@ def main(filename: str):
     df.to_sql("traderepublic", conn, index=False, if_exists='append')
 
 
+def transactions(filename: str):
+    conn = connect_to_postgres()
+    df = load_to_df(filename)
+
+    # convert the column names to lower case and replace spaces with underscores
+    df.columns = df.columns.map(lambda x: x.lower().replace(' ', '_'))
+
+    df['load_time'] = pd.to_datetime('now')
+    df.to_sql("traderepublic_transactions", conn, index=False, if_exists='append')
+
+
 if __name__ == "__main__":
-    Fire(main)
+    Fire({
+        'portfolio': portfolio,
+        'transactions': transactions,
+    })

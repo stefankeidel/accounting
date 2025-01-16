@@ -8,3 +8,4 @@ sources:
       - name: gls
       - name: gls_depot
       - name: traderepublic
+      - name: traderepublic_transactions
