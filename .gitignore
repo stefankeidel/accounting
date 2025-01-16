@@ -174,3 +174,5 @@ pyrightconfig.json
 # random csvs flying around
 *.csv
 
+# vscode
+.vscode/
