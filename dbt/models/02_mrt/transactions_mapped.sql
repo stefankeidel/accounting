@@ -426,5 +426,18 @@ select
         then 'Income:Capital Gains'
 
         else null
-    end as category
+    end as old_cat,
+    string_agg(transaction_mapping.category, ', ') as category
 from to_map
+left join
+    {{ ref("transaction_mapping") }}
+    on to_map.description ilike '%' || transaction_mapping.description_pattern || '%'
+    and (
+        (
+            to_map.amount_eur
+            between transaction_mapping.min_amount_eur
+            and transaction_mapping.max_amount_eur
+        )
+        or transaction_mapping.min_amount_eur is null
+    )
+group by 1, 2, 3, 4, 5, 6, 7
