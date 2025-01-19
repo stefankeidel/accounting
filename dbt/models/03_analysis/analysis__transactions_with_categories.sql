@@ -1,5 +1,4 @@
 select
-
     t.transaction_id,
     date_trunc('month', t.transaction_date) as month,
     t.source,
