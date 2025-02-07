@@ -1,5 +1,5 @@
 select
-    name,
+    'VALUE ' || name as name,
     isin,
     quantity,
     avgcost,
