@@ -7,8 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-pytr = "^0.3.1"
-websockets = "==10.2"
+pytr = "^0.4.1"
 fire = "^0.7.0"
 pandas = "^2.2"
 sqlalchemy = "^2.0.37"
@@ -23,9 +22,6 @@ ipython = "^8.31.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-
-
 
 
 [tool.poetry.group.dev]
