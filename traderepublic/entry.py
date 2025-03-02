@@ -34,7 +34,7 @@ def transactions(filename: str):
     df.columns = df.columns.map(lambda x: x.lower().replace(' ', '_'))
 
     df['load_time'] = pd.to_datetime('now')
-    df.to_sql("traderepublic_transactions", conn, index=False, if_exists='append')
+    df.to_sql("traderepublic_transactions_v2", conn, index=False, if_exists='append')
 
 
 if __name__ == "__main__":
