@@ -84,6 +84,17 @@ with
             null as category
         from {{ ref("traderepublic_transactions") }}
 
+        union all
+
+        select
+            transaction_id::text as transaction_id,
+            'gls_membership' as source,
+            transaction_date,
+            description,
+            account,
+            amount_eur,
+            category
+        from {{ ref("gls_membership_transactions") }}
     )
 
 select
