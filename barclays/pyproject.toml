@@ -1,28 +1,15 @@
-[tool.poetry]
+[project]
 name = "barclays"
 version = "0.1.0"
-description = "Barclays importer from Excel import"
-authors = ["Stefan Keidel <1188614+stefankeidel@users.noreply.github.com>"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-fire = "^0.5.0"
-pandas = "^2.2.0"
-psycopg2 = "^2.9.9"
-openpyxl = "^3.1.2"
-pyarrow = "^15.0.0"
-sqlalchemy = "^2.0.25"
-numpy = "^1.26.3"
-
-[tool.poetry.group.dev.dependencies]
-ipython = "^8.21.0"
-pudb = "^2024.1"
-black = "^24.1.1"
-
-[tool.poetry.group.dev]
-optional = true
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.12"
+dependencies = [
+    "black>=25.1.0",
+    "fire>=0.7.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "psycopg2-binary>=2.9.10",
+    "pudb>=2024.1.3",
+    "sqlalchemy>=2.0.40",
+]
