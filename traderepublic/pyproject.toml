@@ -8,7 +8,7 @@ dependencies = [
     "fire>=0.7.0",
     "pandas>=2.2.3",
     "psycopg2-binary>=2.9.10",
-    "pytr>=0.4.1",
+    "pytr @ git+https://github.com/grizzlyfred/pytr.git@patch-dt_conv_error_206",
     "sqlalchemy>=2.0.40",
 ]
 

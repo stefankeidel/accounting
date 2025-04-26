@@ -456,7 +456,7 @@ wheels = [
 [[package]]
 name = "pytr"
 version = "0.4.1"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/grizzlyfred/pytr.git?rev=patch-dt_conv_error_206#aa471d30b3070f4abf24e1d1e93f815300b2ff36" }
 dependencies = [
     { name = "babel" },
     { name = "certifi" },
@@ -468,10 +468,6 @@ dependencies = [
     { name = "requests-futures" },
     { name = "shtab" },
     { name = "websockets" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1f/9b/e9c3940d93815500e7de6ec72fd4ef35a98f80445ee3d48a37c38d25349e/pytr-0.4.1.tar.gz", hash = "sha256:c5dda5a3ed91e2eeb47bc6ac2a74328c9c3290bf0117c76498e4a8e9f533de79", size = 38000 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/b1/c8496ef610170782da0424963e6f62ec3ac392866c43295afc4ab94f844f/pytr-0.4.1-py3-none-any.whl", hash = "sha256:72e97430e6f05e904cd8baca7988d842404e21d66d1c83577860a7c8599803d5", size = 50091 },
 ]
 
 [[package]]
@@ -629,7 +625,7 @@ requires-dist = [
     { name = "fire", specifier = ">=0.7.0" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
-    { name = "pytr", specifier = ">=0.4.1" },
+    { name = "pytr", git = "https://github.com/grizzlyfred/pytr.git?rev=patch-dt_conv_error_206" },
     { name = "sqlalchemy", specifier = ">=2.0.40" },
 ]
 
