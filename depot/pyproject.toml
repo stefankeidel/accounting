@@ -8,10 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 pandas = "^2.2.0"
-psycopg2 = "^2.9.9"
 sqlalchemy = "^2.0.25"
 fire = "^0.5.0"
 pyarrow = "^15.0.0"
+psycopg2-binary = "^2.9.10"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,6 +22,8 @@ black = "^24.1.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
 
 
 
