@@ -10,19 +10,6 @@ with
             price_eur
         from {{ ref("gls_depot_assets") }}
         where class is not null
-
-        union all
-
-        select
-            transaction_date as snapshot_date,
-            isin as id,
-            'traderepublic' as source,
-            class,
-            type,
-            region,
-            amount_eur as price_eur
-        from {{ ref("traderepublic_depot_transactions") }}
-        where class is not null
     ),
     with_diff as (
         select

@@ -63,30 +63,6 @@ with
         union all
 
         select
-            transaction_id,
-            'traderepublic_depot' as source,
-            transaction_date,
-            name as description,
-            account,
-            diff as amount_eur,
-            null as category
-        from {{ ref("traderepublic_depot_transactions") }}
-
-        union all
-
-        select
-            transaction_id,
-            'traderepublic' as source,
-            transaction_date,
-            description,
-            account,
-            amount_eur,
-            null as category
-        from {{ ref("traderepublic_transactions") }}
-
-        union all
-
-        select
             transaction_id::text as transaction_id,
             'gls_membership' as source,
             transaction_date,
