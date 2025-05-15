@@ -36,6 +36,7 @@ def main(filename: str):
     # convert the column names to lower case and replace spaces with underscores
     df.columns = df.columns.map(lambda x: x.lower().replace(' ', '_'))
     # add current datetime to the dataframe
+    df = df.drop(columns=['gekennzeichneter_umsatz'])
     df['load_time'] = pd.to_datetime('now')
     df.to_sql("gls", conn, index=False, if_exists='append')
 
