@@ -1,17 +1,11 @@
-[tool.poetry]
+[project]
 name = "dbt"
 version = "0.1.0"
-description = ""
-authors = ["Stefan Keidel <1188614+stefankeidel@users.noreply.github.com>"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = ">=3.11,<3.13"
-dbt-postgres = "^1.9.0"
-dbt-core = "^1.9.4"
-shandy-sqlfmt = {version = "^0.24.0", extras = ["jinjafmt"]}
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-core>=1.9.4",
+    "dbt-postgres>=1.9.0",
+    "shandy-sqlfmt[jinjafmt]>=0.26.0",
+]
