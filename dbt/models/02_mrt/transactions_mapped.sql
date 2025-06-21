@@ -416,15 +416,12 @@ with
                 then 'Expenses:Insurance'
                 when description ilike 'Deutsche Wohnen Management GmbH Betriebskosten%'
                 then 'Expenses:Eitelstr'
-
                 when description ilike '%Ausgleich April 2024'
                 then 'Income:Refunds'
-
                 when description = 'Some CSV export from depot'
                 then 'Income:Capital Gains'
                 when description = 'Fake depot to 0 transaction'
                 then 'Income:Capital Gains'
-
                 else null
             end as old_cat,
             string_agg(transaction_mapping.category, ', ') as category
@@ -435,9 +432,9 @@ with
             ilike '%' || transaction_mapping.description_pattern || '%'
             and (
                 (
-                    to_map.amount_eur
-                    between transaction_mapping.min_amount_eur
-                    and transaction_mapping.max_amount_eur
+                    to_map.amount_eur between coalesce(
+                        transaction_mapping.min_amount_eur, -9999999
+                    ) and coalesce(transaction_mapping.max_amount_eur, 9999999)
                 )
                 or transaction_mapping.min_amount_eur is null
             )
