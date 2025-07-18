@@ -3,6 +3,10 @@ version: 2
 models:
   - name: transactions_mapped
     columns:
+      - name: transaction_id
+        description: The unique identifier for the transaction
+        data_tests:
+          - unique
       - name: category
         description: The transaction category
         data_tests:

@@ -424,7 +424,10 @@ with
                 then 'Income:Capital Gains'
                 else null
             end as old_cat,
-            string_agg(transaction_mapping.category, ', ') as category
+            first_value(transaction_mapping.category) over (
+                partition by transaction_id
+            ) as category
+        -- string_agg(transaction_mapping.category, ', ') as category
         from to_map
         left join
             {{ ref("transaction_mapping") }}
@@ -438,9 +441,8 @@ with
                 )
                 or transaction_mapping.min_amount_eur is null
             )
-        group by 1, 2, 3, 4, 5, 6, 7
     )
-select
+select distinct
     transaction_id,
     source,
     transaction_date,
