@@ -1,48 +1,46 @@
----
-title: Welcome to Evidence
----
+# High level Summary Dashboard
 
-<Details title='How to edit this page'>
+## Networth Current (a.k.a. Account Balances)
 
-  This page can be found in your project at `/pages/index.md`. Make a change to the markdown file and save it to see the change take effect in your browser.
-</Details>
-
-```sql categories
-  select distinct
-      category
-  from accounting.transactions_mapped
-  order by 1
+```sql networth_current
+  select *
+  from networth_current
+  order by networth asc
 ```
 
-<Dropdown data={categories} name=category value=category>
-    <DropdownOption value="%" valueLabel="All Categories"/>
-</Dropdown>
+<DataTable data={networth_current}/>
 
+## Networth Monthly
 
-```sql transactions_mapped
-  select
-      date_trunc('month', transaction_date) as month,
-      category,
-      sum(amount_eur) as amount_eur
-  from accounting.transactions_mapped
-  where category like '${inputs.category.value}'
-  group by 1, 2
+```sql networth_monthly
+  select *
+  from networth_monthly
+  order by 1 desc
+```
+
+<LineChart
+    data={networth_monthly}
+    x=month
+    y=networth
+    yAxisTitle="Net Worth per Month"
+    yFmt="eur"
+/>
+
+<DataTable data={networth_monthly}/>
+
+## Networth Yearly
+
+```sql networth_yearly
+  select *
+  from networth_yearly
+  order by 1 desc
 ```
 
 <BarChart
-    data={transactions_mapped}
-    title="Transactions Mapped, {inputs.category.label}"
-    x=month
-    y=amount_eur
-    series=category
+  data={networth_yearly}
+  x=year
+  y=networth
+  y2=networth_delta
+  y2SeriesType="line"
+  yFmt="eur"
 />
-
-## What's Next?
-- [Connect your data sources](settings)
-- Edit/add markdown files in the `pages` folder
-- Deploy your project with [Evidence Cloud](https://evidence.dev/cloud)
-
-## Get Support
-- Message us on [Slack](https://slack.evidence.dev/)
-- Read the [Docs](https://docs.evidence.dev/)
-- Open an issue on [Github](https://github.com/evidence-dev/evidence)

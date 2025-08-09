@@ -279,7 +279,9 @@ JUAN SIN MIEDO,Expenses:Discretionary,,
 Naturcampingplatz,Expenses:Travel,,
 Finanzamt für Steuererhebung in Hamburg,Income:Refunds,0,
 "Stefan%Keidel%",Transfer,0,
-Elisabeth Böhm,Expenses:Discretionary,,0
+Elisabeth Böhm Miete,Expenses:Rent,,
+Elisabeth Böhm Ausgleich,Income:Refunds,0,9999999
+Elisabeth Böhm,Expenses:Discretionary,-99999999,0
 FAIRLIGHTCYCLES,Expenses:Bike,,
 THE NIU,Expenses:Travel,,
 RATSHERRN,Expenses:Discretionary,,
