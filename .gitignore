@@ -173,3 +173,6 @@ pyrightconfig.json
 
 # vscode
 .vscode/
+
+# Projectile
+.projectile
