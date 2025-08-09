@@ -1,0 +1,8 @@
+# This file was automatically generated
+name: accounting
+type: postgres
+options:
+  database: accounting
+  host: nixie
+  port: 5432
+  schema: analytics
