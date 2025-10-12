@@ -1,7 +1,9 @@
 select
     name as product_name,
     upper(trim(wkn)) as wkn,
-    replace(replace("stück/nominal", ' St.', ''), ',', '.')::decimal(10, 3) as quantity,
+    replace(
+        replace(replace("stück/nominal", ' St.', ''), ' Stk.', ''), ',', '.'
+    )::decimal(10, 3) as quantity,
     replace(replace(replace(aktueller_kurs, ' EUR', ''), '.', ''), ',', '.')::decimal(
         10, 2
     ) as piece_eur,
