@@ -11,4 +11,5 @@ models:
         description: The transaction category
         data_tests:
           - not_null:
-              where: "transaction_date >= current_date - interval '3 months'"
+              arguments:
+                where: "transaction_date >= current_date - interval '3 months'"
