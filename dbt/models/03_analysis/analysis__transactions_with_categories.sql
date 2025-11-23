@@ -1,3 +1,4 @@
+with mapped as (
 select
     t.transaction_id,
     date_trunc('month', t.transaction_date) as month,
@@ -9,3 +10,18 @@ select
     coalesce(tm.category, t.category) as category
 from {{ ref("transactions") }} t
 left join {{ ref("transactions_mapped") }} tm using (transaction_id)
+)
+
+select
+   transaction_id
+   , month
+   , source
+   , transaction_date
+   , description
+   , account
+   , amount_eur
+   , case when
+       category = 'Expenses:rent' then 'Expenses:Rent'
+       else category
+    end as category
+from mapped
