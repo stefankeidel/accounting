@@ -37,9 +37,6 @@ def convert_df(df: pd.DataFrame):
                       df_ret.columns + s.cumcount().add(1).astype(str),
                       df_ret.columns)
 
-    # kill reently added column
-    df_ret.drop(columns=['händlerdetails'], inplace=True)
-
     # add current datetime to the dataframe
     df_ret['load_time'] = pd.to_datetime('now')
 
@@ -51,6 +48,9 @@ def main(filename: str):
     conn = connect_to_postgres()
     df_raw = pd.read_excel(filename)
     df = convert_df(df_raw)
+    df.to_csv("~/Downloads/barclays_out.csv", index=False)
+
+    df.drop(columns=['händlerdetails'], inplace=True)
     df.to_sql("barclays", conn, index=False, if_exists='append')
 
 
