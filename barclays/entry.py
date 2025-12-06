@@ -50,7 +50,13 @@ def main(filename: str):
     df = convert_df(df_raw)
     df.to_csv("~/Downloads/barclays_out.csv", index=False)
 
-    df.drop(columns=['händlerdetails'], inplace=True)
+    if 'händlerdetails' in df.columns:
+        df.drop(columns=['händlerdetails'], inplace=True)
+    if 'karteninhaber' in df.columns:
+        df.rename(columns={'karteninhaber': 'name_des_karteninhabers'}, inplace=True)
+    if 'details' in df.columns:
+        df.drop(columns=['details'], inplace=True)
+
     df.to_sql("barclays", conn, index=False, if_exists='append')
 
 
