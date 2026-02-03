@@ -4,6 +4,7 @@ import psycopg2
 import logging
 from sqlalchemy import create_engine
 import numpy as np
+import csv
 
 
 
@@ -48,7 +49,7 @@ def main(filename: str):
     conn = connect_to_postgres()
     df_raw = pd.read_excel(filename)
     df = convert_df(df_raw)
-    df.to_csv("~/Downloads/barclays_out.csv", index=False)
+    df.to_csv("~/Downloads/barclays_out.csv", index=False, quoting=csv.QUOTE_ALL)
 
     if 'händlerdetails' in df.columns:
         df.drop(columns=['händlerdetails'], inplace=True)
@@ -57,7 +58,7 @@ def main(filename: str):
     if 'details' in df.columns:
         df.drop(columns=['details'], inplace=True)
 
-    df.to_sql("barclays", conn, index=False, if_exists='append')
+    #df.to_sql("barclays", conn, index=False, if_exists='append')
 
 
 if __name__ == "__main__":
